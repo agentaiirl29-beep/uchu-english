@@ -1,40 +1,32 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
+<html lang="ru"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="100 фраз">
-<meta name="theme-color" content="#0e1116">
-<title>Тренажёр · 100 фраз → English</title>
+<meta name="theme-color" content="#0b0e13">
+<title>Тренажёр · English</title>
 <style>
-:root{--bg:#0b0e13;--bg2:#10141c;--card:#161b24;--card2:#1c2330;--ink:#eef2f8;--muted:#93a0b2;--line:#252d3a;--accent:#56d4a0;--accent2:#6c9eff;--gold:#ffc15c;--pur:#c08cff;--red:#ff6b6b;--grad:linear-gradient(135deg,#56d4a0,#6c9eff)}
+:root{--bg:#0b0e13;--card:#161b24;--card2:#1c2330;--ink:#eef2f8;--muted:#8d9aac;--line:#252d3a;--accent:#56d4a0;--accent2:#6c9eff;--gold:#ffc15c;--pur:#c08cff;--red:#ff6b6b;--grad:linear-gradient(135deg,#56d4a0,#6c9eff)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%}
 body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.app{max-width:540px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding-bottom:78px}
+.app{max-width:560px;margin:0 auto;min-height:100%;padding-bottom:82px}
 header{position:sticky;top:0;z-index:20;background:rgba(11,14,19,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
-header .ttl{font-size:16px;font-weight:800;letter-spacing:-.01em}
+header .ttl{font-size:16px;font-weight:800}
 header .ttl span{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .flame{display:flex;align-items:center;gap:5px;font-size:14px;font-weight:700;color:var(--gold);background:rgba(255,193,92,.12);border:1px solid rgba(255,193,92,.25);padding:5px 11px;border-radius:30px}
-.screen{display:none;padding:18px;animation:fade .25s ease}
-.screen.on{display:block}
+.screen{display:none;padding:18px;animation:fade .25s ease}.screen.on{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-h2{font-size:22px;margin:2px 0 4px;letter-spacing:-.01em}
-.sub{color:var(--muted);font-size:13.5px;margin:0 0 18px}
-/* dashboard */
+h2{font-size:22px;margin:2px 0 4px}.sub{color:var(--muted);font-size:13.5px;margin:0 0 18px}
 .ring-wrap{display:flex;align-items:center;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin-bottom:14px}
-.ring{position:relative;width:108px;height:108px;flex:none}
-.ring svg{transform:rotate(-90deg)}
+.ring{position:relative;width:108px;height:108px;flex:none}.ring svg{transform:rotate(-90deg)}
 .ring .pct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.ring .pct b{font-size:26px;font-weight:800}
-.ring .pct small{font-size:11px;color:var(--muted)}
-.ring-info{flex:1}
-.ring-info .big{font-size:15px;font-weight:700;margin-bottom:8px}
-.stat-row{display:flex;gap:8px}
-.stat{flex:1;background:var(--card2);border-radius:12px;padding:9px 10px;text-align:center}
-.stat b{font-size:18px;display:block}.stat small{font-size:10.5px;color:var(--muted)}
+.ring .pct b{font-size:26px;font-weight:800}.ring .pct small{font-size:11px;color:var(--muted)}
+.ring-info{flex:1}.ring-info .big{font-size:15px;font-weight:700;margin-bottom:8px}
+.stat-row{display:flex;gap:8px}.stat{flex:1;background:var(--card2);border-radius:12px;padding:9px 6px;text-align:center}
+.stat b{font-size:18px;display:block}.stat small{font-size:10px;color:var(--muted)}
 .stat.n b{color:var(--accent2)}.stat.l b{color:var(--gold)}.stat.k b{color:var(--accent)}
 .cta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
 .cta button{border:none;border-radius:16px;padding:16px;font-size:15px;font-weight:700;color:#06120d;background:var(--grad);cursor:pointer}
@@ -42,115 +34,118 @@ h2{font-size:22px;margin:2px 0 4px;letter-spacing:-.01em}
 .cta button.full{grid-column:1/-1;background:var(--card);color:var(--ink);border:1px solid var(--line)}
 .section-t{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:18px 2px 10px}
 .block{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:9px;cursor:pointer}
-.block .top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}
-.block .top b{font-weight:700}.block .top span{color:var(--muted);font-size:12.5px}
-.bar{height:7px;background:var(--card2);border-radius:6px;overflow:hidden}
-.bar i{display:block;height:100%;background:var(--grad);border-radius:6px;transition:width .4s}
-.hard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px}
-.hard .h{font-size:14px;display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
-.hard .h:last-child{border:none}.hard .h .e{color:var(--accent)}
-/* flashcards */
+.block .top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}.block .top span{color:var(--muted);font-size:12px}
+.bar{height:7px;background:var(--card2);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--grad);border-radius:6px;transition:width .4s}
+.hard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 15px}
+.hard .h{font-size:14px;display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}.hard .h:last-child{border:none}.hard .h .e{color:var(--accent)}
 .deckbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:13px;color:var(--muted)}
-.fc{perspective:1200px;height:340px;margin-bottom:16px}
+.pbar{height:6px;background:var(--card2);border-radius:6px;overflow:hidden;margin-bottom:16px}.pbar i{display:block;height:100%;background:var(--grad);transition:width .3s}
+.fc{perspective:1200px;height:330px;margin-bottom:16px}
 .fc-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;cursor:pointer}
 .fc.flip .fc-inner{transform:rotateY(180deg)}
 .fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:24px;border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
 .fc-front{background:radial-gradient(120% 120% at 50% 0%,#1b2230,#12161e)}
 .fc-back{background:radial-gradient(120% 120% at 50% 0%,#15281f,#101a16);transform:rotateY(180deg)}
-.fc-face .word{font-size:30px;font-weight:800;letter-spacing:-.01em}
-.fc-face .word.en{color:var(--accent)}
-.fc-face .tp{margin-top:14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:20px}
+.fc-face .word{font-size:29px;font-weight:800}.fc-face .word.en{color:var(--accent)}
+.fc-face .ex{margin-top:14px;font-size:13.5px;color:var(--muted);max-width:90%}
+.fc-face .ex b{color:var(--accent2);font-weight:600}
+.tp{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:20px}
 .tp.p{background:rgba(192,140,255,.16);color:var(--pur)}.tp.w{background:rgba(108,158,255,.14);color:var(--accent2)}
-.fc-face .hint{position:absolute;bottom:16px;font-size:12px;color:var(--muted)}
-.fc-face .fr{position:absolute;top:16px;right:18px;font-size:11px;color:var(--muted)}
-.ans{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.ans button{border:none;border-radius:16px;padding:15px;font-size:15px;font-weight:700;cursor:pointer}
-.ans .no{background:rgba(255,107,107,.15);color:var(--red);border:1px solid rgba(255,107,107,.3)}
-.ans .yes{background:rgba(86,212,160,.15);color:var(--accent);border:1px solid rgba(86,212,160,.3)}
-.done-box{text-align:center;padding:40px 20px;background:var(--card);border:1px solid var(--line);border-radius:20px}
-.done-box .em{font-size:46px}.done-box h3{margin:10px 0 6px}.done-box p{color:var(--muted);margin:0 0 16px}
-.done-box button{border:none;border-radius:14px;padding:13px 22px;font-weight:700;background:var(--grad);color:#06120d;cursor:pointer}
-/* quiz */
-.q-prompt{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 20px;text-align:center;margin-bottom:16px}
-.q-prompt .word{font-size:28px;font-weight:800}
-.q-prompt small{color:var(--muted);font-size:12px}
+.fc-face .tpb{margin-top:12px}.fc-face .hint{position:absolute;bottom:14px;font-size:12px;color:var(--muted)}.fc-face .fr{position:absolute;top:14px;right:16px;font-size:11px;color:var(--muted)}
+.ans2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ans2 button{border:none;border-radius:16px;padding:15px;font-size:15px;font-weight:700;cursor:pointer}
+.ans2 .no{background:rgba(255,107,107,.15);color:var(--red);border:1px solid rgba(255,107,107,.3)}
+.ans2 .yes{background:rgba(86,212,160,.15);color:var(--accent);border:1px solid rgba(86,212,160,.3)}
+.lcard{background:radial-gradient(130% 130% at 50% 0%,#1b2230,#12161e);border:1px solid var(--line);border-radius:24px;padding:30px 22px;text-align:center;margin-bottom:16px;min-height:240px;display:flex;flex-direction:column;justify-content:center}
+.lcard .word{font-size:30px;font-weight:800}.lcard .en{font-size:22px;color:var(--accent);font-weight:700;margin-top:8px}
+.lcard .exbox{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:14px}
+.lcard .exbox .r{color:var(--ink)}.lcard .exbox .e{color:var(--accent2);margin-top:4px}
+.lbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lbtns button{border:none;border-radius:16px;padding:15px;font-size:15px;font-weight:700;cursor:pointer}
+.lbtns .know{background:rgba(86,212,160,.15);color:var(--accent);border:1px solid rgba(86,212,160,.3)}
+.lbtns .next{background:var(--grad);color:#06120d}
+.reveal-btn{width:100%;border:1px dashed var(--line);background:var(--card2);color:var(--muted);border-radius:14px;padding:13px;font-weight:600;cursor:pointer;margin-top:4px}
+.q-prompt{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 20px;text-align:center;margin-bottom:16px}
+.q-prompt .word{font-size:27px;font-weight:800}.q-prompt small{color:var(--muted);font-size:12px}
 .q-opts{display:grid;gap:10px}
 .q-opts button{text-align:left;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:15px 17px;font-size:15.5px;font-weight:600;cursor:pointer;transition:.15s}
 .q-opts button.ok{background:rgba(86,212,160,.18);border-color:var(--accent);color:var(--accent)}
 .q-opts button.bad{background:rgba(255,107,107,.15);border-color:var(--red);color:var(--red)}
-.q-score{display:flex;justify-content:space-between;margin-bottom:14px;font-size:13px;color:var(--muted)}
-.q-score b{color:var(--ink)}
-/* browse */
+.q-score{display:flex;justify-content:space-between;margin-bottom:14px;font-size:13px;color:var(--muted)}.q-score b{color:var(--ink)}
+.tr-prompt{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:6px}
+.tr-prompt .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tr-prompt .ru{font-size:20px;font-weight:700;margin-top:6px}
+.tr-ans{min-height:58px;border-bottom:2px solid var(--line);margin:16px 0;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start;padding-bottom:8px}
+.tr-bank{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.tok{background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:9px 13px;font-size:15px;font-weight:600;cursor:pointer;user-select:none}
+.tr-ans .tok{background:var(--card);border-color:var(--accent2)}
+.tr-feedback{border-radius:14px;padding:13px 16px;margin-bottom:12px;font-size:14px;font-weight:600;display:none}
+.tr-feedback.ok{display:block;background:rgba(86,212,160,.14);color:var(--accent);border:1px solid rgba(86,212,160,.3)}
+.tr-feedback.bad{display:block;background:rgba(255,107,107,.13);color:#ffb3b3;border:1px solid rgba(255,107,107,.3)}
+.tr-feedback small{display:block;color:var(--muted);font-weight:500;margin-top:4px}
+.big-btn{width:100%;border:none;border-radius:16px;padding:16px;font-size:16px;font-weight:700;color:#06120d;background:var(--grad);cursor:pointer}
+.big-btn:disabled{opacity:.4;background:var(--card2);color:var(--muted)}
+.big-btn.alt{background:var(--card);color:var(--ink);border:1px solid var(--line)}
 .search{width:100%;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 15px;color:var(--ink);font-size:15px;margin-bottom:12px;outline:none}
-.chips{display:flex;gap:7px;overflow-x:auto;padding-bottom:10px;margin-bottom:6px;-ms-overflow-style:none;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
+.chips{display:flex;gap:7px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
 .chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:30px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
 .chip.on{background:var(--grad);color:#06120d;border-color:transparent}
-.row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 14px;margin-bottom:8px;cursor:pointer}
-.row .dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--muted)}
-.row .dot.learning{background:var(--gold)}.row .dot.known{background:var(--accent)}
-.row .txt{flex:1;min-width:0}
-.row .txt .r{font-weight:700;font-size:15px}
-.row .txt .e{color:var(--accent);font-size:13.5px}
-.row .fr{font-size:11px;color:var(--muted)}
-/* bottom nav */
-nav{position:fixed;bottom:0;left:0;right:0;z-index:20;background:rgba(11,14,19,.9);backdrop-filter:blur(14px);border-top:1px solid var(--line);display:flex;max-width:540px;margin:0 auto;padding:8px 6px calc(8px + env(safe-area-inset-bottom))}
-nav button{flex:1;background:none;border:none;color:var(--muted);font-size:11px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 0;cursor:pointer}
-nav button .ic{font-size:19px}
-nav button.on{color:var(--accent)}
-.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--card2);border:1px solid var(--line);color:var(--ink);padding:10px 16px;border-radius:30px;font-size:13.5px;font-weight:600;opacity:0;transition:.25s;z-index:30;pointer-events:none}
-.toast.show{opacity:1}
-</style>
-</head>
-<body>
+.row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 14px;margin-bottom:8px;cursor:pointer}
+.row .dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--muted)}.row .dot.learning{background:var(--gold)}.row .dot.known{background:var(--accent)}
+.row .txt{flex:1;min-width:0}.row .txt .r{font-weight:700;font-size:15px}.row .txt .e{color:var(--accent);font-size:13px}.row .fr{font-size:11px;color:var(--muted)}
+.done-box{text-align:center;padding:40px 20px;background:var(--card);border:1px solid var(--line);border-radius:20px}
+.done-box .em{font-size:46px}.done-box h3{margin:10px 0 6px}.done-box p{color:var(--muted);margin:0 0 16px}
+.done-box button{border:none;border-radius:14px;padding:13px 22px;font-weight:700;background:var(--grad);color:#06120d;cursor:pointer}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:20;background:rgba(11,14,19,.92);backdrop-filter:blur(14px);border-top:1px solid var(--line);display:flex;max-width:560px;margin:0 auto;padding:7px 2px calc(7px + env(safe-area-inset-bottom))}
+nav button{flex:1;background:none;border:none;color:var(--muted);font-size:10.5px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;cursor:pointer}
+nav button .ic{font-size:18px}nav button.on{color:var(--accent)}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--card2);border:1px solid var(--line);color:var(--ink);padding:10px 16px;border-radius:30px;font-size:13.5px;font-weight:600;opacity:0;transition:.25s;z-index:30;pointer-events:none}.toast.show{opacity:1}
+</style></head><body>
 <div class="app">
-  <header>
-    <div class="ttl">100 фраз <span>→ English</span></div>
-    <div class="flame">🔥 <span id="streak">0</span></div>
-  </header>
+  <header><div class="ttl">100 фраз <span>→ English</span></div><div class="flame">🔥 <span id="streak">0</span></div></header>
 
-  <!-- HOME -->
   <div class="screen on" id="s-home">
-    <h2>Привет!</h2>
-    <p class="sub">Учим самые частые слова и фразы из наших разговоров за месяц.</p>
+    <h2>Привет, Андрей!</h2>
+    <p class="sub">Учим самые частые слова и фразы из наших разговоров.</p>
     <div class="ring-wrap">
-      <div class="ring">
-        <svg width="108" height="108"><circle cx="54" cy="54" r="46" stroke="#252d3a" stroke-width="11" fill="none"/><circle id="ring-fg" cx="54" cy="54" r="46" stroke="url(#g)" stroke-width="11" fill="none" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#56d4a0"/><stop offset="1" stop-color="#6c9eff"/></linearGradient></defs></svg>
-        <div class="pct"><b id="ring-pct">0%</b><small>выучено</small></div>
-      </div>
-      <div class="ring-info">
-        <div class="big" id="ring-msg">Поехали 🚀</div>
-        <div class="stat-row">
-          <div class="stat n"><b id="c-new">0</b><small>новые</small></div>
-          <div class="stat l"><b id="c-learn">0</b><small>учу</small></div>
-          <div class="stat k"><b id="c-known">0</b><small>выучено</small></div>
-        </div>
-      </div>
+      <div class="ring"><svg width="108" height="108"><circle cx="54" cy="54" r="46" stroke="#252d3a" stroke-width="11" fill="none"/><circle id="ring-fg" cx="54" cy="54" r="46" stroke="url(#g)" stroke-width="11" fill="none" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#56d4a0"/><stop offset="1" stop-color="#6c9eff"/></linearGradient></defs></svg><div class="pct"><b id="ring-pct">0%</b><small>выучено</small></div></div>
+      <div class="ring-info"><div class="big" id="ring-msg">Поехали 🚀</div><div class="stat-row"><div class="stat n"><b id="c-new">0</b><small>новые</small></div><div class="stat l"><b id="c-learn">0</b><small>учу</small></div><div class="stat k"><b id="c-known">0</b><small>выучено</small></div></div></div>
     </div>
     <div class="cta">
-      <button onclick="startCards()">📇 Карточки</button>
-      <button class="alt" onclick="go('quiz');startQuiz()">🎯 Тест</button>
+      <button onclick="startLesson()">📚 Урок</button>
+      <button class="alt" onclick="startTranslate()">🧩 Перевод</button>
+      <button class="alt" onclick="startCards()">📇 Карточки</button>
+      <button class="alt" onclick="startQuiz()">🎯 Тест</button>
       <button class="full" onclick="go('browse')">📖 Все 100 слов</button>
     </div>
-    <div class="section-t">Прогресс по блокам</div>
+    <div class="section-t">Учить по блокам (по 20)</div>
     <div id="blocks"></div>
-    <div class="section-t">Сложные слова (чаще ошибаешься)</div>
+    <div class="section-t">Сложные слова (где ошибаешься)</div>
     <div class="hard" id="hard"></div>
   </div>
 
-  <!-- CARDS -->
+  <div class="screen" id="s-lesson">
+    <div class="deckbar"><span id="le-label">Урок</span><span id="le-prog">0 / 0</span></div>
+    <div class="pbar"><i id="le-bar" style="width:0"></i></div>
+    <div id="lesson-area"></div>
+  </div>
+
   <div class="screen" id="s-cards">
-    <div class="deckbar"><span id="deck-progress">0 / 0</span><span id="deck-label"></span></div>
+    <div class="deckbar"><span id="deck-label">Карточки</span><span id="deck-progress">0 / 0</span></div>
+    <div class="pbar"><i id="cd-bar" style="width:0"></i></div>
     <div id="card-area"></div>
   </div>
 
-  <!-- QUIZ -->
+  <div class="screen" id="s-translate">
+    <div class="deckbar"><span>🧩 Собери перевод</span><span>Верно: <b id="tr-correct" style="color:var(--accent)">0</b></span></div>
+    <div id="translate-area"></div>
+  </div>
+
   <div class="screen" id="s-quiz">
     <div class="q-score"><span>Вопрос <b id="q-num">1</b></span><span>Верно: <b id="q-correct">0</b></span></div>
     <div id="quiz-area"></div>
   </div>
 
-  <!-- BROWSE -->
   <div class="screen" id="s-browse">
     <h2>Все слова</h2>
     <input class="search" id="search" placeholder="Поиск…" oninput="renderBrowse()">
@@ -160,138 +155,112 @@ nav button.on{color:var(--accent)}
 
   <nav>
     <button class="on" data-s="home" onclick="go('home')"><span class="ic">🏠</span>Главная</button>
-    <button data-s="cards" onclick="go('cards');startCards()"><span class="ic">📇</span>Карточки</button>
-    <button data-s="quiz" onclick="go('quiz');startQuiz()"><span class="ic">🎯</span>Тест</button>
-    <button data-s="browse" onclick="go('browse')"><span class="ic">📖</span>Слова</button>
+    <button data-s="lesson" onclick="startLesson()"><span class="ic">📚</span>Урок</button>
+    <button data-s="cards" onclick="startCards()"><span class="ic">📇</span>Карточки</button>
+    <button data-s="translate" onclick="startTranslate()"><span class="ic">🧩</span>Перевод</button>
+    <button data-s="quiz" onclick="startQuiz()"><span class="ic">🎯</span>Тест</button>
   </nav>
 </div>
 <div class="toast" id="toast"></div>
-
 <script>
-const DATA = [{"id": 1, "ru": "просто", "en": "just / simply", "fr": 1422, "tp": "слово"}, {"id": 2, "ru": "чтобы", "en": "so that / in order to", "fr": 835, "tp": "слово"}, {"id": 3, "ru": "сейчас", "en": "now", "fr": 821, "tp": "слово"}, {"id": 4, "ru": "потому что", "en": "because", "fr": 814, "tp": "фраза"}, {"id": 5, "ru": "то есть", "en": "that is / I mean", "fr": 773, "tp": "фраза"}, {"id": 6, "ru": "поэтому", "en": "so / therefore", "fr": 558, "tp": "слово"}, {"id": 7, "ru": "можно", "en": "one can / it's possible", "fr": 543, "tp": "слово"}, {"id": 8, "ru": "делать", "en": "to do / to make", "fr": 508, "tp": "слово"}, {"id": 9, "ru": "что-то", "en": "something", "fr": 496, "tp": "фраза"}, {"id": 10, "ru": "тоже", "en": "also / too", "fr": 491, "tp": "слово"}, {"id": 11, "ru": "сделать", "en": "to do / make (done)", "fr": 477, "tp": "слово"}, {"id": 12, "ru": "нужно", "en": "need to / necessary", "fr": 462, "tp": "слово"}, {"id": 13, "ru": "агент", "en": "agent", "fr": 416, "tp": "слово"}, {"id": 14, "ru": "например", "en": "for example", "fr": 393, "tp": "слово"}, {"id": 15, "ru": "условно", "en": "let's say / conditionally", "fr": 393, "tp": "слово"}, {"id": 16, "ru": "хочу", "en": "I want", "fr": 362, "tp": "слово"}, {"id": 17, "ru": "вообще", "en": "in general / at all", "fr": 332, "tp": "слово"}, {"id": 18, "ru": "почему", "en": "why", "fr": 330, "tp": "слово"}, {"id": 19, "ru": "знаю", "en": "I know", "fr": 303, "tp": "слово"}, {"id": 20, "ru": "должен", "en": "must / should", "fr": 301, "tp": "слово"}, {"id": 21, "ru": "очень", "en": "very", "fr": 300, "tp": "слово"}, {"id": 22, "ru": "сделал", "en": "did / made", "fr": 292, "tp": "слово"}, {"id": 23, "ru": "работает", "en": "(it) works", "fr": 280, "tp": "слово"}, {"id": 24, "ru": "говорю", "en": "I say / I'm saying", "fr": 260, "tp": "слово"}, {"id": 25, "ru": "хорошо", "en": "good / okay / well", "fr": 251, "tp": "слово"}, {"id": 26, "ru": "не знаю", "en": "I don't know", "fr": 236, "tp": "фраза"}, {"id": 27, "ru": "вопрос", "en": "question", "fr": 228, "tp": "слово"}, {"id": 28, "ru": "конечно", "en": "of course", "fr": 225, "tp": "слово"}, {"id": 29, "ru": "работать", "en": "to work", "fr": 219, "tp": "слово"}, {"id": 30, "ru": "понимаешь", "en": "you understand / you know?", "fr": 213, "tp": "слово"}, {"id": 31, "ru": "может быть", "en": "maybe", "fr": 210, "tp": "фраза"}, {"id": 32, "ru": "наверное", "en": "probably", "fr": 190, "tp": "слово"}, {"id": 33, "ru": "правильно", "en": "right / correctly", "fr": 186, "tp": "слово"}, {"id": 34, "ru": "пока", "en": "for now / while / bye", "fr": 177, "tp": "слово"}, {"id": 35, "ru": "сразу", "en": "right away / at once", "fr": 176, "tp": "слово"}, {"id": 36, "ru": "как раз", "en": "exactly / just", "fr": 175, "tp": "фраза"}, {"id": 37, "ru": "какой-то / какие-то", "en": "some / some kind of", "fr": 175, "tp": "фраза"}, {"id": 38, "ru": "сегодня", "en": "today", "fr": 172, "tp": "слово"}, {"id": 39, "ru": "лучше", "en": "better", "fr": 170, "tp": "слово"}, {"id": 40, "ru": "люди", "en": "people", "fr": 169, "tp": "слово"}, {"id": 41, "ru": "кстати", "en": "by the way", "fr": 165, "tp": "слово"}, {"id": 42, "ru": "как-то", "en": "somehow", "fr": 158, "tp": "фраза"}, {"id": 43, "ru": "в целом", "en": "in general / overall", "fr": 152, "tp": "фраза"}, {"id": 44, "ru": "больше", "en": "more", "fr": 152, "tp": "слово"}, {"id": 45, "ru": "день", "en": "day", "fr": 151, "tp": "слово"}, {"id": 46, "ru": "много", "en": "a lot / many", "fr": 139, "tp": "слово"}, {"id": 47, "ru": "получается", "en": "it turns out / so", "fr": 135, "tp": "слово"}, {"id": 48, "ru": "я думаю", "en": "I think", "fr": 132, "tp": "фраза"}, {"id": 49, "ru": "всегда", "en": "always", "fr": 127, "tp": "слово"}, {"id": 50, "ru": "вещи", "en": "things", "fr": 127, "tp": "слово"}, {"id": 51, "ru": "завтра", "en": "tomorrow", "fr": 125, "tp": "слово"}, {"id": 52, "ru": "время", "en": "time", "fr": 125, "tp": "слово"}, {"id": 53, "ru": "смотри", "en": "look / look here", "fr": 123, "tp": "слово"}, {"id": 54, "ru": "понял", "en": "got it / understood", "fr": 122, "tp": "слово"}, {"id": 55, "ru": "всё равно", "en": "anyway / all the same", "fr": 120, "tp": "фраза"}, {"id": 56, "ru": "человек", "en": "person", "fr": 120, "tp": "слово"}, {"id": 57, "ru": "стоит", "en": "worth / should / costs", "fr": 114, "tp": "слово"}, {"id": 58, "ru": "понимаю", "en": "I understand", "fr": 111, "tp": "слово"}, {"id": 59, "ru": "сколько", "en": "how much / how many", "fr": 109, "tp": "слово"}, {"id": 60, "ru": "сказать", "en": "to say", "fr": 107, "tp": "слово"}, {"id": 61, "ru": "мне кажется", "en": "it seems to me / I think", "fr": 105, "tp": "фраза"}, {"id": 62, "ru": "сервер", "en": "server", "fr": 103, "tp": "слово"}, {"id": 63, "ru": "дальше", "en": "next / further", "fr": 98, "tp": "слово"}, {"id": 64, "ru": "сначала", "en": "first / at first", "fr": 96, "tp": "слово"}, {"id": 65, "ru": "ты можешь", "en": "you can", "fr": 95, "tp": "фраза"}, {"id": 66, "ru": "пароль", "en": "password", "fr": 94, "tp": "слово"}, {"id": 67, "ru": "интересно", "en": "interesting", "fr": 93, "tp": "слово"}, {"id": 68, "ru": "реально", "en": "really / for real", "fr": 91, "tp": "слово"}, {"id": 69, "ru": "понятно", "en": "clear / got it", "fr": 88, "tp": "слово"}, {"id": 70, "ru": "где-то", "en": "somewhere / about", "fr": 86, "tp": "фраза"}, {"id": 71, "ru": "файл", "en": "file", "fr": 85, "tp": "слово"}, {"id": 72, "ru": "код", "en": "code", "fr": 84, "tp": "слово"}, {"id": 73, "ru": "база знаний", "en": "knowledge base", "fr": 83, "tp": "фраза"}, {"id": 74, "ru": "важно", "en": "important", "fr": 83, "tp": "слово"}, {"id": 75, "ru": "точно", "en": "exactly / for sure", "fr": 82, "tp": "слово"}, {"id": 76, "ru": "на самом деле", "en": "actually / in fact", "fr": 81, "tp": "фраза"}, {"id": 77, "ru": "имею в виду", "en": "I mean", "fr": 81, "tp": "фраза"}, {"id": 78, "ru": "вот так", "en": "like this", "fr": 79, "tp": "фраза"}, {"id": 79, "ru": "как бы", "en": "kind of / sort of", "fr": 75, "tp": "фраза"}, {"id": 80, "ru": "нравится", "en": "(I) like (it)", "fr": 75, "tp": "слово"}, {"id": 81, "ru": "значит", "en": "that means / so", "fr": 74, "tp": "слово"}, {"id": 82, "ru": "номер", "en": "number", "fr": 74, "tp": "слово"}, {"id": 83, "ru": "хочу, чтобы", "en": "I want (you) to", "fr": 73, "tp": "фраза"}, {"id": 84, "ru": "момент", "en": "moment", "fr": 73, "tp": "слово"}, {"id": 85, "ru": "создать", "en": "to create", "fr": 72, "tp": "слово"}, {"id": 86, "ru": "круто", "en": "cool", "fr": 71, "tp": "слово"}, {"id": 87, "ru": "чат", "en": "chat", "fr": 71, "tp": "слово"}, {"id": 88, "ru": "скорее всего", "en": "most likely", "fr": 70, "tp": "фраза"}, {"id": 89, "ru": "я могу", "en": "I can", "fr": 70, "tp": "фраза"}, {"id": 90, "ru": "пользоваться", "en": "to use", "fr": 70, "tp": "слово"}, {"id": 91, "ru": "план", "en": "plan", "fr": 69, "tp": "слово"}, {"id": 92, "ru": "у меня есть", "en": "I have", "fr": 67, "tp": "фраза"}, {"id": 93, "ru": "прикольно", "en": "cool / nice", "fr": 67, "tp": "слово"}, {"id": 94, "ru": "быстро", "en": "quickly", "fr": 67, "tp": "слово"}, {"id": 95, "ru": "решение", "en": "solution / decision", "fr": 67, "tp": "слово"}, {"id": 96, "ru": "и так далее", "en": "and so on", "fr": 65, "tp": "фраза"}, {"id": 97, "ru": "доступ", "en": "access", "fr": 65, "tp": "слово"}, {"id": 98, "ru": "это будет", "en": "it will be", "fr": 63, "tp": "фраза"}, {"id": 99, "ru": "должно быть", "en": "it should be", "fr": 62, "tp": "фраза"}, {"id": 100, "ru": "для меня / для тебя", "en": "for me / for you", "fr": 60, "tp": "фраза"}];
-const LS='vocab100v1';
-let state=loadState();
-function loadState(){try{return JSON.parse(localStorage.getItem(LS))||{}}catch(e){return{}}}
-function saveState(){localStorage.setItem(LS,JSON.stringify(state))}
-if(!state.cards)state.cards={};
+const DATA = [{"id": 1, "ru": "просто", "en": "just / simply", "fr": 1422, "tp": "слово", "exru": "Я просто хочу попробовать.", "exen": "I just want to try."}, {"id": 2, "ru": "чтобы", "en": "so that / in order to", "fr": 835, "tp": "слово", "exru": "Я звоню, чтобы помочь.", "exen": "I am calling to help."}, {"id": 3, "ru": "сейчас", "en": "now", "fr": 821, "tp": "слово", "exru": "Я занят прямо сейчас.", "exen": "I am busy right now."}, {"id": 4, "ru": "потому что", "en": "because", "fr": 814, "tp": "фраза", "exru": "Я рад, потому что всё работает.", "exen": "I am happy because it works."}, {"id": 5, "ru": "то есть", "en": "that is / I mean", "fr": 773, "tp": "фраза", "exru": "Завтра, то есть в среду.", "exen": "Tomorrow, that is on Wednesday."}, {"id": 6, "ru": "поэтому", "en": "so / therefore", "fr": 558, "tp": "слово", "exru": "Идёт дождь, поэтому я дома.", "exen": "It is raining so I am home."}, {"id": 7, "ru": "можно", "en": "one can / possible", "fr": 543, "tp": "слово", "exru": "Можно задать вопрос?", "exen": "Can I ask a question?"}, {"id": 8, "ru": "делать", "en": "to do / make", "fr": 508, "tp": "слово", "exru": "Что мне делать дальше?", "exen": "What should I do next?"}, {"id": 9, "ru": "что-то", "en": "something", "fr": 496, "tp": "фраза", "exru": "Мне нужно что-то поесть.", "exen": "I need to eat something."}, {"id": 10, "ru": "тоже", "en": "also / too", "fr": 491, "tp": "слово", "exru": "Я тоже так думаю.", "exen": "I think so too."}, {"id": 11, "ru": "сделать", "en": "to do / make (done)", "fr": 477, "tp": "слово", "exru": "Это нужно сделать сегодня.", "exen": "This needs to be done today."}, {"id": 12, "ru": "нужно", "en": "need to / necessary", "fr": 462, "tp": "слово", "exru": "Мне нужно больше времени.", "exen": "I need more time."}, {"id": 13, "ru": "может", "en": "can / may", "fr": 458, "tp": "слово", "exru": "Это может занять час.", "exen": "This may take an hour."}, {"id": 14, "ru": "агент", "en": "agent", "fr": 416, "tp": "слово", "exru": "Этот агент отвечает быстро.", "exen": "This agent answers fast."}, {"id": 15, "ru": "например", "en": "for example", "fr": 393, "tp": "слово", "exru": "Возьми что-то, например это.", "exen": "Take something for example this."}, {"id": 16, "ru": "условно", "en": "let's say / conditionally", "fr": 393, "tp": "слово", "exru": "Условно, это займёт день.", "exen": "Let us say it takes a day."}, {"id": 17, "ru": "хочу", "en": "I want", "fr": 362, "tp": "слово", "exru": "Я хочу выучить английский.", "exen": "I want to learn English."}, {"id": 18, "ru": "вообще", "en": "in general / at all", "fr": 332, "tp": "слово", "exru": "Мне это вообще не нравится.", "exen": "I do not like it at all."}, {"id": 19, "ru": "почему", "en": "why", "fr": 330, "tp": "слово", "exru": "Почему это не работает?", "exen": "Why does this not work?"}, {"id": 20, "ru": "знаю", "en": "I know", "fr": 303, "tp": "слово", "exru": "Я знаю ответ.", "exen": "I know the answer."}, {"id": 21, "ru": "должен", "en": "must / should", "fr": 301, "tp": "слово", "exru": "Я должен закончить сегодня.", "exen": "I must finish today."}, {"id": 22, "ru": "очень", "en": "very", "fr": 300, "tp": "слово", "exru": "Это очень важно.", "exen": "This is very important."}, {"id": 23, "ru": "сделал", "en": "did / made", "fr": 292, "tp": "слово", "exru": "Я уже сделал это.", "exen": "I already did this."}, {"id": 24, "ru": "работает", "en": "it works", "fr": 280, "tp": "слово", "exru": "Теперь всё работает.", "exen": "Now everything works."}, {"id": 25, "ru": "который", "en": "which / that", "fr": 269, "tp": "слово", "exru": "Это агент, который помогает.", "exen": "This is the agent that helps."}, {"id": 26, "ru": "говорю", "en": "I say / I'm saying", "fr": 260, "tp": "слово", "exru": "Я говорю серьёзно.", "exen": "I am saying it seriously."}, {"id": 27, "ru": "хорошо", "en": "good / okay / well", "fr": 251, "tp": "слово", "exru": "Это звучит хорошо.", "exen": "That sounds good."}, {"id": 28, "ru": "не знаю", "en": "I don't know", "fr": 236, "tp": "фраза", "exru": "Я не знаю, что делать.", "exen": "I do not know what to do."}, {"id": 29, "ru": "могу", "en": "I can", "fr": 234, "tp": "слово", "exru": "Я могу помочь тебе.", "exen": "I can help you."}, {"id": 30, "ru": "вопрос", "en": "question", "fr": 228, "tp": "слово", "exru": "У меня есть вопрос.", "exen": "I have a question."}, {"id": 31, "ru": "конечно", "en": "of course", "fr": 225, "tp": "слово", "exru": "Да, конечно.", "exen": "Yes of course."}, {"id": 32, "ru": "такое", "en": "such / that kind", "fr": 220, "tp": "слово", "exru": "Что это такое?", "exen": "What is this?"}, {"id": 33, "ru": "работать", "en": "to work", "fr": 219, "tp": "слово", "exru": "Мне нравится здесь работать.", "exen": "I like to work here."}, {"id": 34, "ru": "понимаешь", "en": "you understand?", "fr": 213, "tp": "слово", "exru": "Ты понимаешь меня?", "exen": "Do you understand me?"}, {"id": 35, "ru": "может быть", "en": "maybe", "fr": 210, "tp": "фраза", "exru": "Может быть, завтра.", "exen": "Maybe tomorrow."}, {"id": 36, "ru": "такой", "en": "such / so", "fr": 200, "tp": "слово", "exru": "Это такой хороший план.", "exen": "It is such a good plan."}, {"id": 37, "ru": "наверное", "en": "probably", "fr": 190, "tp": "слово", "exru": "Наверное, ты прав.", "exen": "You are probably right."}, {"id": 38, "ru": "правильно", "en": "right / correctly", "fr": 186, "tp": "слово", "exru": "Ты сделал всё правильно.", "exen": "You did everything right."}, {"id": 39, "ru": "пока", "en": "for now / while / bye", "fr": 177, "tp": "слово", "exru": "Этого пока достаточно.", "exen": "This is enough for now."}, {"id": 40, "ru": "сразу", "en": "right away / at once", "fr": 176, "tp": "слово", "exru": "Я отвечу сразу.", "exen": "I will answer right away."}, {"id": 41, "ru": "как раз", "en": "exactly / just", "fr": 175, "tp": "фраза", "exru": "Это как раз то, что нужно.", "exen": "This is exactly what I need."}, {"id": 42, "ru": "какой-то / какие-то", "en": "some kind of", "fr": 175, "tp": "фраза", "exru": "Тут какая-то ошибка.", "exen": "There is some kind of error."}, {"id": 43, "ru": "сегодня", "en": "today", "fr": 172, "tp": "слово", "exru": "Я свободен сегодня.", "exen": "I am free today."}, {"id": 44, "ru": "лучше", "en": "better", "fr": 170, "tp": "слово", "exru": "Так гораздо лучше.", "exen": "This is much better."}, {"id": 45, "ru": "люди", "en": "people", "fr": 169, "tp": "слово", "exru": "Люди любят простые вещи.", "exen": "People like simple things."}, {"id": 46, "ru": "кстати", "en": "by the way", "fr": 165, "tp": "слово", "exru": "Кстати, это работает.", "exen": "By the way this works."}, {"id": 47, "ru": "как-то", "en": "somehow", "fr": 158, "tp": "фраза", "exru": "Это надо как-то решить.", "exen": "We need to solve this somehow."}, {"id": 48, "ru": "больше", "en": "more", "fr": 152, "tp": "слово", "exru": "Мне нужно больше данных.", "exen": "I need more data."}, {"id": 49, "ru": "в целом", "en": "in general / overall", "fr": 152, "tp": "фраза", "exru": "В целом, всё хорошо.", "exen": "In general everything is good."}, {"id": 50, "ru": "день", "en": "day", "fr": 151, "tp": "слово", "exru": "Это был долгий день.", "exen": "It was a long day."}, {"id": 51, "ru": "много", "en": "a lot / many", "fr": 139, "tp": "слово", "exru": "У нас много работы.", "exen": "We have a lot of work."}, {"id": 52, "ru": "получается", "en": "it turns out / so", "fr": 135, "tp": "слово", "exru": "Получается, мы готовы.", "exen": "So it turns out we are ready."}, {"id": 53, "ru": "я думаю", "en": "I think", "fr": 132, "tp": "фраза", "exru": "Я думаю, это хорошая идея.", "exen": "I think this is a good idea."}, {"id": 54, "ru": "всегда", "en": "always", "fr": 127, "tp": "слово", "exru": "Я всегда проверяю дважды.", "exen": "I always check twice."}, {"id": 55, "ru": "вещи", "en": "things", "fr": 127, "tp": "слово", "exru": "Эти вещи важны.", "exen": "These things are important."}, {"id": 56, "ru": "завтра", "en": "tomorrow", "fr": 125, "tp": "слово", "exru": "Увидимся завтра.", "exen": "See you tomorrow."}, {"id": 57, "ru": "время", "en": "time", "fr": 125, "tp": "слово", "exru": "У нас мало времени.", "exen": "We have little time."}, {"id": 58, "ru": "смотри", "en": "look / look here", "fr": 123, "tp": "слово", "exru": "Смотри, это просто.", "exen": "Look this is simple."}, {"id": 59, "ru": "понял", "en": "got it / understood", "fr": 122, "tp": "слово", "exru": "Окей, я понял.", "exen": "Okay I got it."}, {"id": 60, "ru": "человек", "en": "person", "fr": 120, "tp": "слово", "exru": "Он хороший человек.", "exen": "He is a good person."}, {"id": 61, "ru": "всё равно", "en": "anyway / all the same", "fr": 120, "tp": "фраза", "exru": "Я всё равно попробую.", "exen": "I will try anyway."}, {"id": 62, "ru": "стоит", "en": "worth / should", "fr": 114, "tp": "слово", "exru": "Это стоит попробовать.", "exen": "This is worth a try."}, {"id": 63, "ru": "понимаю", "en": "I understand", "fr": 111, "tp": "слово", "exru": "Теперь я понимаю.", "exen": "Now I understand."}, {"id": 64, "ru": "сколько", "en": "how much / many", "fr": 109, "tp": "слово", "exru": "Сколько это стоит?", "exen": "How much does it cost?"}, {"id": 65, "ru": "сказать", "en": "to say", "fr": 107, "tp": "слово", "exru": "Я хочу кое-что сказать.", "exen": "I want to say something."}, {"id": 66, "ru": "мне кажется", "en": "it seems to me", "fr": 105, "tp": "фраза", "exru": "Мне кажется, это правильно.", "exen": "It seems to me this is right."}, {"id": 67, "ru": "сервер", "en": "server", "fr": 103, "tp": "слово", "exru": "Сервер работает стабильно.", "exen": "The server works well."}, {"id": 68, "ru": "дальше", "en": "next / further", "fr": 98, "tp": "слово", "exru": "Что мы делаем дальше?", "exen": "What do we do next?"}, {"id": 69, "ru": "сначала", "en": "first / at first", "fr": 96, "tp": "слово", "exru": "Сначала проверь это.", "exen": "First check this."}, {"id": 70, "ru": "ты можешь", "en": "you can", "fr": 95, "tp": "фраза", "exru": "Ты можешь это сделать.", "exen": "You can do this."}, {"id": 71, "ru": "пароль", "en": "password", "fr": 94, "tp": "слово", "exru": "Я забыл свой пароль.", "exen": "I forgot my password."}, {"id": 72, "ru": "интересно", "en": "interesting", "fr": 93, "tp": "слово", "exru": "Это очень интересно.", "exen": "This is very interesting."}, {"id": 73, "ru": "вопросы", "en": "questions", "fr": 92, "tp": "слово", "exru": "У меня есть вопросы.", "exen": "I have questions."}, {"id": 74, "ru": "реально", "en": "really / for real", "fr": 91, "tp": "слово", "exru": "Это реально работает.", "exen": "This really works."}, {"id": 75, "ru": "понятно", "en": "clear / got it", "fr": 88, "tp": "слово", "exru": "Теперь всё понятно.", "exen": "Now everything is clear."}, {"id": 76, "ru": "где-то", "en": "somewhere / about", "fr": 86, "tp": "фраза", "exru": "Это где-то здесь.", "exen": "It is somewhere here."}, {"id": 77, "ru": "файл", "en": "file", "fr": 85, "tp": "слово", "exru": "Открой этот файл.", "exen": "Open this file."}, {"id": 78, "ru": "код", "en": "code", "fr": 84, "tp": "слово", "exru": "Код работает чисто.", "exen": "The code works cleanly."}, {"id": 79, "ru": "важно", "en": "important", "fr": 83, "tp": "слово", "exru": "Безопасность очень важна.", "exen": "Security is very important."}, {"id": 80, "ru": "база знаний", "en": "knowledge base", "fr": 83, "tp": "фраза", "exru": "Это наша база знаний.", "exen": "This is our knowledge base."}, {"id": 81, "ru": "точно", "en": "exactly / for sure", "fr": 82, "tp": "слово", "exru": "Это точно правильно.", "exen": "This is exactly right."}, {"id": 82, "ru": "на самом деле", "en": "actually / in fact", "fr": 81, "tp": "фраза", "exru": "На самом деле, это просто.", "exen": "Actually it is simple."}, {"id": 83, "ru": "имею в виду", "en": "I mean", "fr": 81, "tp": "фраза", "exru": "Я имею в виду завтра.", "exen": "I mean tomorrow."}, {"id": 84, "ru": "вот так", "en": "like this", "fr": 79, "tp": "фраза", "exru": "Сделай вот так.", "exen": "Do it like this."}, {"id": 85, "ru": "нравится", "en": "I like (it)", "fr": 75, "tp": "слово", "exru": "Мне нравится этот план.", "exen": "I like this plan."}, {"id": 86, "ru": "как бы", "en": "kind of / sort of", "fr": 75, "tp": "фраза", "exru": "Это как бы тест.", "exen": "This is kind of a test."}, {"id": 87, "ru": "номер", "en": "number", "fr": 74, "tp": "слово", "exru": "Дай мне свой номер.", "exen": "Give me your number."}, {"id": 88, "ru": "значит", "en": "means / so", "fr": 74, "tp": "слово", "exru": "Значит, мы согласны.", "exen": "So we agree."}, {"id": 89, "ru": "хочу, чтобы", "en": "I want (you) to", "fr": 73, "tp": "фраза", "exru": "Я хочу, чтобы это работало.", "exen": "I want this to work."}, {"id": 90, "ru": "момент", "en": "moment", "fr": 73, "tp": "слово", "exru": "Подожди один момент.", "exen": "Wait one moment."}, {"id": 91, "ru": "создать", "en": "to create", "fr": 72, "tp": "слово", "exru": "Нам нужно создать план.", "exen": "We need to create a plan."}, {"id": 92, "ru": "хочешь", "en": "you want", "fr": 71, "tp": "слово", "exru": "Ты хочешь попробовать?", "exen": "Do you want to try?"}, {"id": 93, "ru": "круто", "en": "cool", "fr": 71, "tp": "слово", "exru": "Это очень круто.", "exen": "This is very cool."}, {"id": 94, "ru": "чат", "en": "chat", "fr": 71, "tp": "слово", "exru": "Напиши мне в чат.", "exen": "Write to me in the chat."}, {"id": 95, "ru": "пользоваться", "en": "to use", "fr": 70, "tp": "слово", "exru": "Этим легко пользоваться.", "exen": "This is easy to use."}, {"id": 96, "ru": "скорее всего", "en": "most likely", "fr": 70, "tp": "фраза", "exru": "Скорее всего, да.", "exen": "Most likely yes."}, {"id": 97, "ru": "я могу", "en": "I can", "fr": 70, "tp": "фраза", "exru": "Я могу сделать это сам.", "exen": "I can do it myself."}, {"id": 98, "ru": "план", "en": "plan", "fr": 69, "tp": "слово", "exru": "У меня есть план.", "exen": "I have a plan."}, {"id": 99, "ru": "прикольно", "en": "cool / nice", "fr": 67, "tp": "слово", "exru": "Получилось прикольно.", "exen": "It turned out nice."}, {"id": 100, "ru": "быстро", "en": "quickly", "fr": 67, "tp": "слово", "exru": "Отвечай быстро.", "exen": "Answer quickly."}];
+const LS='vocab100v2';
+let state=load();function load(){try{return JSON.parse(localStorage.getItem(LS))||{}}catch(e){return{}}}
+function save(){localStorage.setItem(LS,JSON.stringify(state))}
+if(!state.cards){state.cards={};const old=localStorage.getItem('vocab100v1');if(old){try{const o=JSON.parse(old);if(o.cards)state.cards=o.cards;if(o.streak)state.streak=o.streak}catch(e){}}}
 DATA.forEach(d=>{if(!state.cards[d.id])state.cards[d.id]={st:'new',ok:0,seen:0,wrong:0}});
-if(!state.streak)state.streak={c:0,last:''};
-saveState();
-
+if(!state.streak)state.streak={c:0,last:''};save();
+const DIST=["today","please","maybe","really","people","time","work","good","plan","help","now","very","next","week","thing","make","know","want","need","here","this","that","with","your","every"];
 function today(){return new Date().toISOString().slice(0,10)}
-function touchStreak(){const ds=today();if(state.streak.last===ds)return;const y=new Date(Date.now()-864e5).toISOString().slice(0,10);state.streak.c=(state.streak.last===y)?(state.streak.c+1):1;state.streak.last=ds;saveState()}
+function touchStreak(){const ds=today();if(state.streak.last===ds)return;const y=new Date(Date.now()-864e5).toISOString().slice(0,10);state.streak.c=(state.streak.last===y)?(state.streak.c+1):1;state.streak.last=ds;save()}
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1400)}
-
 function counts(){let n=0,l=0,k=0;DATA.forEach(d=>{const s=state.cards[d.id].st;if(s==='known')k++;else if(s==='learning')l++;else n++});return{n,l,k}}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function go(s){document.querySelectorAll('.screen').forEach(e=>e.classList.remove('on'));document.getElementById('s-'+s).classList.add('on');document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.s===s));window.scrollTo(0,0);if(s==='home')renderHome();if(s==='browse')renderBrowse()}
+function norm(s){return s.toLowerCase().replace(/[.,!?;:]/g,'').replace(/\s+/g,' ').trim()}
 
-function renderHome(){
-  const c=counts();const pct=Math.round(c.k/DATA.length*100);
-  document.getElementById('ring-pct').textContent=pct+'%';
-  document.getElementById('ring-fg').style.strokeDashoffset=289-(289*pct/100);
-  document.getElementById('c-new').textContent=c.n;
-  document.getElementById('c-learn').textContent=c.l;
-  document.getElementById('c-known').textContent=c.k;
+function renderHome(){const c=counts();const pct=Math.round(c.k/DATA.length*100);
+  document.getElementById('ring-pct').textContent=pct+'%';document.getElementById('ring-fg').style.strokeDashoffset=289-(289*pct/100);
+  document.getElementById('c-new').textContent=c.n;document.getElementById('c-learn').textContent=c.l;document.getElementById('c-known').textContent=c.k;
   document.getElementById('streak').textContent=state.streak.c;
-  const msg=pct===0?'Поехали 🚀':pct<30?'Хорошее начало 💪':pct<70?'Отличный темп 🔥':pct<100?'Почти всё! 🏁':'Всё выучено! 🏆';
-  document.getElementById('ring-msg').textContent=msg;
-  // blocks of 20
-  let bl='';for(let b=0;b<5;b++){const ids=DATA.slice(b*20,b*20+20);const kn=ids.filter(d=>state.cards[d.id].st==='known').length;const p=Math.round(kn/ids.length*100);
-    bl+=`<div class="block" onclick="startCards(${b})"><div class="top"><b>Блок ${b+1}</b><span>${kn}/20 · слова ${b*20+1}–${b*20+20}</span></div><div class="bar"><i style="width:${p}%"></i></div></div>`}
+  document.getElementById('ring-msg').textContent=pct===0?'Поехали 🚀':pct<30?'Хорошее начало 💪':pct<70?'Отличный темп 🔥':pct<100?'Почти всё! 🏁':'Всё выучено! 🏆';
+  let bl='';for(let b=0;b<5;b++){const ids=DATA.slice(b*20,b*20+20);const kn=ids.filter(d=>state.cards[d.id].st==='known').length;const p=Math.round(kn/ids.length*100);bl+=`<div class="block" onclick="startLesson(${b})"><div class="top"><b>Блок ${b+1}</b><span>${kn}/20 · слова ${b*20+1}–${b*20+20}</span></div><div class="bar"><i style="width:${p}%"></i></div></div>`}
   document.getElementById('blocks').innerHTML=bl;
-  // hardest
   const hard=DATA.filter(d=>state.cards[d.id].wrong>0).sort((a,b)=>state.cards[b.id].wrong-state.cards[a.id].wrong).slice(0,5);
-  document.getElementById('hard').innerHTML=hard.length?hard.map(d=>`<div class="h"><span>${d.ru} — <span class="e">${d.en}</span></span><span style="color:var(--red)">✕${state.cards[d.id].wrong}</span></div>`).join(''):'<div class="h" style="color:var(--muted)">Пока пусто — начни тренироваться 👇</div>';
-}
+  document.getElementById('hard').innerHTML=hard.length?hard.map(d=>`<div class="h"><span>${d.ru} — <span class="e">${d.en}</span></span><span style="color:var(--red)">✕${state.cards[d.id].wrong}</span></div>`).join(''):'<div class="h" style="color:var(--muted)">Пока пусто — начни тренироваться 👇</div>';}
 
-/* ---------- CARDS ---------- */
+/* LESSON */
+let les=[],lei=0,leRevealed=false;
+function startLesson(block){go('lesson');let pool=(typeof block==='number')?DATA.slice(block*20,block*20+20):DATA.filter(d=>state.cards[d.id].st==='new');if(!pool.length)pool=DATA.slice();les=pool.slice(0,12);lei=0;document.getElementById('le-label').textContent=(typeof block==='number')?('Блок '+(block+1)):'Новые слова';showLesson();}
+function showLesson(){const area=document.getElementById('lesson-area');document.getElementById('le-prog').textContent=lei+' / '+les.length;document.getElementById('le-bar').style.width=(lei/les.length*100)+'%';
+  if(lei>=les.length){area.innerHTML=`<div class="done-box"><div class="em">📚✨</div><h3>Урок пройден!</h3><p>${les.length} слов изучено</p><button onclick="startTranslate()">Закрепить переводом →</button></div>`;touchStreak();renderHome();return;}
+  const d=les[lei];leRevealed=false;
+  area.innerHTML=`<div class="lcard"><div class="word">${d.ru}</div><div class="tp ${d.tp==='фраза'?'p':'w'}" style="margin-top:10px;display:inline-block">${d.tp}</div><div id="lreveal"></div></div>
+  <button class="reveal-btn" id="lrevbtn" onclick="revealLesson()">👁 Показать перевод и пример</button>`;}
+function revealLesson(){const d=les[lei];leRevealed=true;document.getElementById('lreveal').innerHTML=`<div class="en">${d.en}</div><div class="exbox"><div class="r">${d.exru}</div><div class="e">${d.exen}</div></div>`;
+  document.getElementById('lrevbtn').outerHTML=`<div class="lbtns"><button class="know" onclick="lessonMark(true)">Уже знаю</button><button class="next" onclick="lessonMark(false)">Дальше →</button></div>`;}
+function lessonMark(known){const d=les[lei];const cs=state.cards[d.id];cs.seen++;if(known){cs.ok=2;cs.st='known'}else if(cs.st==='new'){cs.st='learning'}save();lei++;showLesson();}
+
+/* CARDS */
 let deck=[],di=0,flipped=false;
-function startCards(block){
-  go('cards');
-  let pool=DATA.slice();
-  if(block!=null)pool=DATA.slice(block*20,block*20+20);
-  // priority: learning, then new, then known (review)
-  const order={learning:0,new:1,known:2};
-  deck=pool.map(d=>d).sort((a,b)=>order[state.cards[a.id].st]-order[state.cards[b.id].st]||state.cards[b.id].wrong-state.cards[a.id].wrong);
-  // limit session to 20
-  deck=deck.slice(0,20);
-  document.getElementById('deck-label').textContent=block!=null?('Блок '+(block+1)):'Сессия';
-  di=0;showCard();
-}
-function showCard(){
-  const area=document.getElementById('card-area');
-  if(di>=deck.length){
-    area.innerHTML=`<div class="done-box"><div class="em">🎉</div><h3>Сессия пройдена!</h3><p>${deck.length} карточек</p><button onclick="go('home')">На главную</button></div>`;
-    document.getElementById('deck-progress').textContent=deck.length+' / '+deck.length;
-    touchStreak();renderHome();return;
-  }
-  document.getElementById('deck-progress').textContent=di+' / '+deck.length;
+function startCards(block){go('cards');let pool=(typeof block==='number')?DATA.slice(block*20,block*20+20):DATA.slice();const order={learning:0,new:1,known:2};deck=pool.slice().sort((a,b)=>order[state.cards[a.id].st]-order[state.cards[b.id].st]||state.cards[b.id].wrong-state.cards[a.id].wrong).slice(0,20);document.getElementById('deck-label').textContent=(typeof block==='number')?('Блок '+(block+1)):'Карточки';di=0;showCard();}
+function showCard(){const area=document.getElementById('card-area');document.getElementById('deck-progress').textContent=di+' / '+deck.length;document.getElementById('cd-bar').style.width=(di/deck.length*100)+'%';
+  if(di>=deck.length){area.innerHTML=`<div class="done-box"><div class="em">🎉</div><h3>Сессия пройдена!</h3><p>${deck.length} карточек</p><button onclick="go('home')">На главную</button></div>`;touchStreak();renderHome();return;}
   const d=deck[di];flipped=false;
   area.innerHTML=`<div class="fc" id="fc" onclick="flipCard()"><div class="fc-inner">
-    <div class="fc-face fc-front"><div class="fr">${d.fr}×</div><div class="word">${d.ru}</div><div class="tp ${d.tp==='фраза'?'p':'w'}">${d.tp}</div><div class="hint">нажми, чтобы перевернуть</div></div>
-    <div class="fc-face fc-back"><div class="word en">${d.en}</div><div class="tp ${d.tp==='фраза'?'p':'w'}">${d.tp}</div><div class="hint">знаешь это слово?</div></div>
-  </div></div>
-  <div class="ans"><button class="no" onclick="markCard(false)">Не знаю</button><button class="yes" onclick="markCard(true)">Знаю ✓</button></div>`;
-}
+    <div class="fc-face fc-front"><div class="fr">${d.fr}×</div><div class="word">${d.ru}</div><div class="tpb"><span class="tp ${d.tp==='фраза'?'p':'w'}">${d.tp}</span></div><div class="hint">нажми, чтобы перевернуть</div></div>
+    <div class="fc-face fc-back"><div class="word en">${d.en}</div><div class="ex"><b>${d.exru}</b><br>${d.exen}</div><div class="hint">знаешь это слово?</div></div></div></div>
+  <div class="ans2"><button class="no" onclick="markCard(false)">Не знаю</button><button class="yes" onclick="markCard(true)">Знаю ✓</button></div>`;}
 function flipCard(){flipped=!flipped;document.getElementById('fc').classList.toggle('flip',flipped)}
-function markCard(knew){
-  const d=deck[di];const cs=state.cards[d.id];cs.seen++;
-  if(knew){cs.ok++;cs.st=(cs.ok>=2)?'known':'learning'}
-  else{cs.ok=0;cs.wrong++;cs.st='learning'}
-  saveState();di++;showCard();
-}
+function markCard(k){const d=deck[di];const cs=state.cards[d.id];cs.seen++;if(k){cs.ok++;cs.st=(cs.ok>=2)?'known':'learning'}else{cs.ok=0;cs.wrong++;cs.st='learning'}save();di++;showCard();}
 
-/* ---------- QUIZ ---------- */
-let qCard=null,qNum=0,qCorrect=0,qAnswered=false;
-function startQuiz(){go('quiz');qNum=0;qCorrect=0;nextQuiz()}
-function nextQuiz(){
-  qAnswered=false;qNum++;
-  document.getElementById('q-num').textContent=qNum;
-  document.getElementById('q-correct').textContent=qCorrect;
-  // prefer not-known
-  const pool=DATA.filter(d=>state.cards[d.id].st!=='known');
-  const src=(pool.length?pool:DATA);
-  qCard=src[Math.floor(Math.random()*src.length)];
-  // options
-  const opts=[qCard];
-  const others=DATA.filter(d=>d.id!==qCard.id);
-  while(opts.length<4){const o=others[Math.floor(Math.random()*others.length)];if(!opts.includes(o))opts.push(o)}
-  for(let i=opts.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[opts[i],opts[j]]=[opts[j],opts[i]]}
-  document.getElementById('quiz-area').innerHTML=`<div class="q-prompt"><div class="word">${qCard.ru}</div><small>${qCard.tp}</small></div><div class="q-opts" id="qopts">${opts.map(o=>`<button onclick="answerQuiz(this,${o.id})">${o.en}</button>`).join('')}</div>`;
-}
-function answerQuiz(btn,id){
-  if(qAnswered)return;qAnswered=true;
-  const cs=state.cards[qCard.id];cs.seen++;
-  const ok=id===qCard.id;
-  document.querySelectorAll('#qopts button').forEach(b=>b.disabled=true);
-  if(ok){btn.classList.add('ok');qCorrect++;cs.ok++;if(cs.st!=='known'&&cs.ok>=2)cs.st='known';else if(cs.st==='new')cs.st='learning'}
-  else{btn.classList.add('bad');cs.wrong++;cs.ok=0;cs.st='learning';
-    document.querySelectorAll('#qopts button').forEach(b=>{if(b.textContent===qCard.en)b.classList.add('ok')})}
-  document.getElementById('q-correct').textContent=qCorrect;
-  saveState();touchStreak();
-  setTimeout(nextQuiz,ok?700:1500);
-}
+/* TRANSLATE (Duolingo style) */
+let tCard=null,tCorrect='',tBank=[],tAns=[],trCorrect=0,trChecked=false;
+function startTranslate(){go('translate');trCorrect=0;nextTranslate();}
+function nextTranslate(){trChecked=false;document.getElementById('tr-correct').textContent=trCorrect;
+  const pool=DATA.filter(d=>state.cards[d.id].st!=='known');const src=pool.length?pool:DATA;tCard=src[Math.floor(Math.random()*src.length)];
+  tCorrect=tCard.exen;const toks=tCorrect.replace(/[.,!?]/g,'').split(' ');
+  let extra=[];const lc=toks.map(t=>t.toLowerCase());while(extra.length<2){const w=DIST[Math.floor(Math.random()*DIST.length)];if(!lc.includes(w)&&!extra.includes(w))extra.push(w)}
+  tBank=shuffle(toks.concat(extra).map((w,i)=>({w,k:i})));tAns=[];renderTranslate();}
+function renderTranslate(){const d=tCard;
+  document.getElementById('translate-area').innerHTML=`<div class="tr-prompt"><div class="lbl">Переведи на английский</div><div class="ru">${d.exru}</div></div>
+  <div class="tr-ans" id="tr-ans"></div>
+  <div class="tr-feedback" id="tr-fb"></div>
+  <div class="tr-bank" id="tr-bank"></div>
+  <button class="big-btn" id="tr-check" onclick="checkTranslate()" ${tAns.length?'':'disabled'}>Проверить</button>`;
+  drawTokens();}
+function drawTokens(){document.getElementById('tr-ans').innerHTML=tAns.map(t=>`<span class="tok" onclick="unpick(${t.k})">${t.w}</span>`).join('');
+  document.getElementById('tr-bank').innerHTML=tBank.map(t=>`<span class="tok" onclick="pick(${t.k})">${t.w}</span>`).join('');
+  const btn=document.getElementById('tr-check');if(btn&&!trChecked)btn.disabled=tAns.length===0;}
+function pick(k){if(trChecked)return;const i=tBank.findIndex(t=>t.k===k);if(i<0)return;tAns.push(tBank[i]);tBank.splice(i,1);drawTokens();}
+function unpick(k){if(trChecked)return;const i=tAns.findIndex(t=>t.k===k);if(i<0)return;tBank.push(tAns[i]);tAns.splice(i,1);drawTokens();}
+function checkTranslate(){if(trChecked)return;trChecked=true;const got=norm(tAns.map(t=>t.w).join(' '));const ok=got===norm(tCorrect);
+  const cs=state.cards[tCard.id];cs.seen++;const fb=document.getElementById('tr-fb');
+  if(ok){trCorrect++;cs.ok++;if(cs.st!=='known'&&cs.ok>=2)cs.st='known';else if(cs.st==='new')cs.st='learning';fb.className='tr-feedback ok';fb.innerHTML='✓ Верно! '+tCard.exen;}
+  else{cs.wrong++;cs.ok=0;cs.st='learning';fb.className='tr-feedback bad';fb.innerHTML='Почти! Правильно так:<small>'+tCard.exen+'</small>';}
+  document.getElementById('tr-correct').textContent=trCorrect;save();touchStreak();
+  const btn=document.getElementById('tr-check');btn.disabled=false;btn.textContent='Дальше →';btn.onclick=nextTranslate;}
 
-/* ---------- BROWSE ---------- */
-let filter='all';
-const FILTERS=[['all','Все'],['new','Новые'],['learning','Учу'],['known','Выучено'],['фраза','Фразы'],['слово','Слова']];
+/* QUIZ */
+let qCard=null,qNum=0,qCorrect=0,qAns=false;
+function startQuiz(){go('quiz');qNum=0;qCorrect=0;nextQuiz();}
+function nextQuiz(){qAns=false;qNum++;document.getElementById('q-num').textContent=qNum;document.getElementById('q-correct').textContent=qCorrect;
+  const pool=DATA.filter(d=>state.cards[d.id].st!=='known');const src=pool.length?pool:DATA;qCard=src[Math.floor(Math.random()*src.length)];
+  const opts=[qCard];const others=DATA.filter(d=>d.id!==qCard.id);while(opts.length<4){const o=others[Math.floor(Math.random()*others.length)];if(!opts.includes(o))opts.push(o)}shuffle(opts);
+  document.getElementById('quiz-area').innerHTML=`<div class="q-prompt"><div class="word">${qCard.ru}</div><small>${qCard.tp}</small></div><div class="q-opts" id="qopts">${opts.map(o=>`<button onclick="answerQuiz(this,${o.id})">${o.en}</button>`).join('')}</div>`;}
+function answerQuiz(btn,id){if(qAns)return;qAns=true;const cs=state.cards[qCard.id];cs.seen++;const ok=id===qCard.id;document.querySelectorAll('#qopts button').forEach(b=>b.disabled=true);
+  if(ok){btn.classList.add('ok');qCorrect++;cs.ok++;if(cs.st!=='known'&&cs.ok>=2)cs.st='known';else if(cs.st==='new')cs.st='learning';}
+  else{btn.classList.add('bad');cs.wrong++;cs.ok=0;cs.st='learning';document.querySelectorAll('#qopts button').forEach(b=>{if(b.textContent===qCard.en)b.classList.add('ok')})}
+  document.getElementById('q-correct').textContent=qCorrect;save();touchStreak();setTimeout(nextQuiz,ok?700:1500);}
+
+/* BROWSE */
+let filter='all';const FILTERS=[['all','Все'],['new','Новые'],['learning','Учу'],['known','Выучено'],['фраза','Фразы'],['слово','Слова']];
 function renderChips(){document.getElementById('chips').innerHTML=FILTERS.map(f=>`<div class="chip ${filter===f[0]?'on':''}" onclick="setFilter('${f[0]}')">${f[1]}</div>`).join('')}
 function setFilter(f){filter=f;renderChips();renderBrowse()}
-function renderBrowse(){
-  renderChips();
-  const q=(document.getElementById('search').value||'').toLowerCase();
-  let list=DATA.filter(d=>{
-    const s=state.cards[d.id].st;
-    if(['new','learning','known'].includes(filter)&&s!==filter)return false;
-    if(['фраза','слово'].includes(filter)&&d.tp!==filter)return false;
-    if(q&&!(d.ru.toLowerCase().includes(q)||d.en.toLowerCase().includes(q)))return false;
-    return true;
-  });
-  document.getElementById('list').innerHTML=list.map(d=>{const s=state.cards[d.id].st;return `<div class="row" onclick="cycleStatus(${d.id})"><div class="dot ${s}"></div><div class="txt"><div class="r">${d.ru}</div><div class="e">${d.en}</div></div><div class="fr">${d.fr}×</div></div>`}).join('')||'<p class="sub">Ничего не найдено</p>';
-}
-function cycleStatus(id){const cs=state.cards[id];cs.st=cs.st==='new'?'learning':cs.st==='learning'?'known':'new';if(cs.st==='known')cs.ok=2;saveState();toast(cs.st==='known'?'Выучено ✓':cs.st==='learning'?'В процессе':'Сброшено');renderBrowse();}
+function renderBrowse(){renderChips();const q=(document.getElementById('search').value||'').toLowerCase();
+  let list=DATA.filter(d=>{const s=state.cards[d.id].st;if(['new','learning','known'].includes(filter)&&s!==filter)return false;if(['фраза','слово'].includes(filter)&&d.tp!==filter)return false;if(q&&!(d.ru.toLowerCase().includes(q)||d.en.toLowerCase().includes(q)))return false;return true;});
+  document.getElementById('list').innerHTML=list.map(d=>{const s=state.cards[d.id].st;return `<div class="row" onclick="cycleStatus(${d.id})"><div class="dot ${s}"></div><div class="txt"><div class="r">${d.ru}</div><div class="e">${d.en}</div></div><div class="fr">${d.fr}×</div></div>`}).join('')||'<p class="sub">Ничего не найдено</p>';}
+function cycleStatus(id){const cs=state.cards[id];cs.st=cs.st==='new'?'learning':cs.st==='learning'?'known':'new';if(cs.st==='known')cs.ok=2;save();toast(cs.st==='known'?'Выучено ✓':cs.st==='learning'?'В процессе':'Сброшено');renderBrowse();}
 
 renderHome();renderChips();
-</script>
-</body>
-</html>
+</script></body></html>
